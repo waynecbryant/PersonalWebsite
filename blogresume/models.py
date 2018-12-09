@@ -1,9 +1,12 @@
 #models.py
-from blogresume import db
+from blogresume import db, login_manager
 from flask_bcrypt import Bcrypt
-from flask_login import UserMixin, login_manager
+from flask_login import UserMixin
 from datetime import datetime
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -25,9 +28,7 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"Username: {self.username}"
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(user_id)
+
     
 class BlogPost(db.Model):
     __tablename__ = 'blog_posts'

@@ -7,7 +7,7 @@ import os
 
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'testkey'
 
 
 #####################
@@ -30,5 +30,8 @@ login_manager.login_view = 'users.login'
 #Registered Pages
 from blogresume.core.views import core
 from blogresume.error_pages.handlers import error_pages
+from blogresume.users.views import users
+
 app.register_blueprint(core)
 app.register_blueprint(error_pages)
+app.register_blueprint(users)
