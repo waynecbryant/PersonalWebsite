@@ -1,0 +1,8 @@
+.img-fluid{
+    min-width: 2560;
+    max-width: none;
+}
+
+h1{
+    color: purple !important;
+}

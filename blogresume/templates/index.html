@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1>Wayne Bryant Blog</h1>
+<div class="container-fluid no-padding">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="{{url_for('static',filename='website_pics/landing_background.jpg')}}"  class="img-fluid" alt="Responsive image"/>
+        </div>
+    </div>
 </div>
+
+
 <div class="container">
     {% for post in blog_posts.items %}
         <div class="card" style="width: 18rem;">

@@ -1,46 +1,48 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="custom.css" />
         <meta charset="utf-8">
         <title></title>
     </head>
     <body>
-
-        <ul class="nav">
-            
-            <li class="nav-link">
-                <a href="{{url_for('core.index')}}">Home</a>
-            </li>
-
-            <li class="nav-link">
-                    <a href="{{url_for('core.info')}}">About Me</a>
-            </li>
-            {% if current_user.is_authenticated %}
-                <li class="nav-link">
-                        <a href="{{url_for('users.logout')}}">Logout</a>
+        <h1>TEST</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('core.index')}}">Home</a>
                 </li>
-                <li class="nav-link">
-                        <a href="{{url_for('users.account')}}">Account</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('core.info')}}">About Me</a>
                 </li>
-                <li class="nav-link">
-                        <a href="{{url_for('blog_posts.create_post')}}">Create Post</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
                 </li>
-            {% else %}
-                <li class="nav-link">
-                    <a href="{{url_for('users.login')}}">Login</a>
-                </li>    
-            <li class="nav-link">
-                        <a href="{{url_for('users.register')}}">Register</a>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('users.logout')}}">Logout</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('users.account')}}">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('blog_posts.create_post')}}">Create Post</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('users.login')}}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('users.register')}}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
 
-            {% endif %}
-
-
-        </ul>
 <div class="container">
     {% block content %}
 
