@@ -7,6 +7,7 @@ from blogresume.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from blogresume.users.picture_handler import add_profile_pic
 
 users = Blueprint('users', __name__)
+
 #register
 @users.route('/register', methods=['GET', 'POST'])
 def register():
@@ -17,7 +18,7 @@ def register():
         db.session.commit()
         flash("Thanks for registering")
         return redirect(url_for('users.login'))
-    return render_template('register.html', form=form)
+    return form
 #login
 @users.route('/login', methods=['GET', 'POST'])
 def login():
@@ -26,7 +27,6 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.check_password(form.password.data):
             login_user(user)
-            flash('Log in Success')
             next = request.args.get('next')
             if next == None or not next[0]=='/':
                 next = url_for('core.index')
@@ -61,8 +61,8 @@ def account():
     return render_template('account.html', profile_image=profile_image, form=form)
 
 #show blog posts
-@users.route("/<username>")
-def user_posts(username):
+@users.route("/<username>", methods=['GET', 'POST'])
+def user_post(username):
     page = request.args.get('page',1,type=int)
     user = User.query.filter_by(username=username).first_or_404()
     blog_posts = BlogPost.query.filter_by(author=user).order_by(BlogPost.date.desc()).paginate(page=page, per_page=5)

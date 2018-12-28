@@ -1,8 +1,32 @@
 .jumbotron{
     padding: 5px;
+    background-color:ghostwhite;
+    border-style: solid;
+    border-color: darkgrey;
+    border-width: 1px;
+}
+body {
+    background-color: rgba(234,235,237,1);
+
 }
 
 .test{
     color: blue;
     font-weight: bold;
+}
+p {
+    margin: 4px
+}
+p.med-space{
+    margin-top:1.2em;
+}
+
+.right-align {
+    float: right;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom 10px;
 }

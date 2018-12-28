@@ -6,7 +6,7 @@ from flask_login import LoginManager
 import os
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'testkey'
 
 
@@ -27,6 +27,8 @@ Migrate(app,db)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
+
+
 #Registered Pages
 from blogresume.core.views import core
 from blogresume.users.views import users

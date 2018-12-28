@@ -9,13 +9,25 @@
         </div>
         <div class="col-sm-4">
             <div class="jumbotron">
-                <h6>Create an account to contribute to the DataShock Community!</h6>
+                <h6>Register using an existing Github, Google, or Facebook account:</h6>
                 oAuth
                 <br />
                 Login
                 <br />
-                password
-                <br />
+
+                <hr class="my-4" />
+                <p class="med-space"><h6 class="text-center">Create a DataShock account:</h6></p>
+
+                <form method="POST">
+                    {{form.hidden_tag()}}
+                    <p class="text-center med-space">{{form.username(placeholder=" Username")}}</p>
+                    <p class="text-center">{{form.email(placeholder=" Email")}}</p>
+                    <p class="text-center">{{form.password(placeholder=" Password")}}</p>
+                    <p class="text-center">{{form.password_confirm(placeholder=" Confirm Password")}}</p>
+                    <p class="text-center med-space">{{form.submit(class="btn btn-primary")}}</p>
+                    <br />
+                </form>
+
             </div>
         </div>
     </div>
@@ -23,15 +35,24 @@
 <br />
 
 
+<h2 class="text-center text-primary">Blog Posts</h2>
 <div class="container">
     {% for post in blog_posts.items %}
-    <div class="card" style="width: 40rem;">
+    <div class="card" style="width: 67.5rem;">
         <div class="card-body">
-            <h2><a class="card-title" href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}"></a>{{post.title}}</h2>
-            Written by: 
-            <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
-            <p>Published on: {{post.date.strftime('%m-%d-%Y')}}</p>
-            <a class="btn btn-primary" href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">Read Blog Post</a>
+            <h2><a class="card-title" href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
+            <p>
+                {% if post.text|length > 100 %}
+                {{post.text[:100]}}...
+                {% else %}
+                {{post.text[:100]}}
+                {% endif %}
+            </p>
+
+            <p>
+                Written by: <a href="{{url_for('users.user_post', username=post.author.username)}}">{{post.author.username}}</a>
+                <span style="float:right">Published on: {{post.date.strftime('%m-%d-%Y')}}</span>
+            </p>
         </div>
     </div>
     <br />
