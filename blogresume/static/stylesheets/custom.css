@@ -1,19 +1,32 @@
-.jumbotron{
+.jumbotron {
     padding: 5px;
-    background-color:ghostwhite;
-    border-style: solid;
+    background-color: rgba(234,235,237,1);
+    border-style: none;
     border-color: darkgrey;
     border-width: 1px;
 }
+.container-fluid {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 100%;
+    min-height: 100vh;
+}
+border-bottom {
+    border-bottom-style: solid;
+}
+.vert-center {
+
+    display: flex;
+    align-items: center;
+}
+
 body {
     background-color: rgba(234,235,237,1);
-
 }
 
-.test{
-    color: blue;
-    font-weight: bold;
-}
+
 p {
     margin: 4px
 }
@@ -30,3 +43,4 @@ p.med-space{
     float: none;
     margin-bottom 10px;
 }
+

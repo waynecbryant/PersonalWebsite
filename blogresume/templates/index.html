@@ -5,30 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8">
-            <img src="{{url_for('static',filename='website_pics/landing_background.jpg')}}" class="img-fluid" alt="Responsive image" />
-        </div>
-        <div class="col-sm-4">
-            <div class="jumbotron">
-                <h6>Register using an existing Github, Google, or Facebook account:</h6>
-                oAuth
-                <br />
-                Login
-                <br />
-
-                <hr class="my-4" />
-                <p class="med-space"><h6 class="text-center">Create a DataShock account:</h6></p>
-
-                <form method="POST">
-                    {{form.hidden_tag()}}
-                    <p class="text-center med-space">{{form.username(placeholder=" Username")}}</p>
-                    <p class="text-center">{{form.email(placeholder=" Email")}}</p>
-                    <p class="text-center">{{form.password(placeholder=" Password")}}</p>
-                    <p class="text-center">{{form.password_confirm(placeholder=" Confirm Password")}}</p>
-                    <p class="text-center med-space">{{form.submit(class="btn btn-primary")}}</p>
-                    <br />
-                </form>
-
-            </div>
+            <img src="{{url_for('static',filename='website_pics/landing_background2.jpg')}}" class="img-fluid" alt="Responsive image" />
         </div>
     </div>
 </div>

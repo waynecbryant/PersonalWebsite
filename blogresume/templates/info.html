@@ -1,9 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1>About DataShock</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae nulla recusandae ad non incidunt. Modi vel tempora aut reiciendis, molestias magnam dolores. Distinctio beatae architecto laborum vitae corporis adipisci molestiae!</p>
+<div class="container-fluid mt-1">
+    <div class="row">
+        <div class="col-xl-6 mr-0">
+            <img src="{{url_for('static',filename='website_pics/WayneBryantGarden.jpg')}}" class="img-fluid " alt="Responsive image" />
+        </div>
+        <div class="jumbotron vert-center col-xl-6">
+            <div class="d-flex flex-column">
+                <div>
+                    <h1>Wayne Bryant</h1>
+                </div>
+                <div>
+                    <p>
+                        Wayne Bryant is a problem-solving enthusiast who loves to dive headfirst into complex problems, develop creative solutions, 
+                        and drive results for senior leadership. He is currently working as a Senior Wealth & Asset Management Consultant for 
+                        Ernst & Young with a focus on digital platforms.
+                    </p>
+                    <br />
+                    Wayne has been enamored with technology every since he built his first PC at the age of 8, which ultimately led to 
+                    his double major in Computer Science and Business Management. Wayne built this website as a medium to express his personal views 
+                    and explore of the interconnectivity between business and technology.
+                </div>
+            </div> 
+        </div>
+
+    </div>
 </div>
+
+
 
 {% endblock %}
